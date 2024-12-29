@@ -18,14 +18,13 @@ function updateCountdown() {
     }
 }
 
-
 function createSnowflake() {
     const snowflake = document.createElement('div');
     snowflake.classList.add('snowflake');
     snowflake.textContent = '❄';
     snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // ความเร็วการตก
-    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // ขนาด
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
     document.body.appendChild(snowflake);
 
     setTimeout(() => {
@@ -38,28 +37,43 @@ const interval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
 const playButton = document.getElementById("playButton");
-        const changeSongButton = document.getElementById("changeSongButton");
-        const audio = document.getElementById("audio");
+const changeSongButton = document.getElementById("changeSongButton");
+const audio = document.getElementById("audio");
 
-        const songs = [
-            "music/newyear.mp3",
-            "music/newyear2.mp3", 
-            "music/newyear3.mp3",
-            "music/newyear4.mp3"
-        ];
+const songs = [
+    "music/newyear.mp3",
+    "music/newyear2.mp3", 
+    "music/newyear3.mp3",
+    "music/newyear4.mp3"
+];
 
-        let currentSongIndex = 0; 
-    
-        playButton.addEventListener("click", function() {
-            audio.play();
-            playButton.disabled = true; 
-        });
+let currentSongIndex = 0; 
 
-    
-        changeSongButton.addEventListener("click", function() {
-            
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            audio.src = songs[currentSongIndex];
-            audio.play(); 
-            playButton.disabled = false; 
-        });
+playButton.addEventListener("click", function() {
+    audio.play();
+    playButton.disabled = true; 
+});
+
+changeSongButton.addEventListener("click", function() {
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    audio.src = songs[currentSongIndex];
+    audio.play(); 
+    playButton.disabled = false; 
+});
+
+function updateDayNightMode() {
+    const currentHour = new Date().getHours();
+    const body = document.body;
+
+    if (currentHour >= 6 && currentHour < 18) {
+        body.classList.add('day');
+        body.classList.remove('night');
+    } else {
+        body.classList.add('night');
+        body.classList.remove('day');
+    }
+}
+
+updateDayNightMode();
+
+setInterval(updateDayNightMode, 60000);

@@ -10,13 +10,57 @@ body {
     text-align: center;
     overflow: hidden;
     flex-direction: column;
+    transition: background 1s ease;
 }
+
+.sun, .moon {
+    position: absolute;
+    font-size: 5rem;
+    top: 10%;
+    transition: transform 1s ease;
+    z-index: 2;
+}
+
+.sun {
+    left: 5%;
+    color: yellow;
+}
+
+.moon {
+    position: absolute;
+    right: 5%;
+    color: lightgray;
+    display: none;
+    font-size: 5rem;
+    animation: pulseMoon 4s infinite ease-in-out;
+}
+
+@keyframes pulseMoon {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.night .moon {
+    display: block;
+}
+
+.day .sun {
+    display: block;
+}
+
 .itim-regular {
     font-family: "Itim", serif;
     font-weight: 400;
     font-style: normal;
-  }
-  
+}
+
 h1 {
     font-family: "Itim", serif;
     font-size: 5vw;
@@ -111,6 +155,7 @@ iframe {
         font-size: 0.8rem;
     }
 }
+
 #playButton {
     padding: 15px 30px;
     font-size: 16px;
@@ -127,21 +172,21 @@ iframe {
     background-color: #45a049;
 }
 
-/* สไตล์เมื่อกดปุ่ม */
 #playButton:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
 }
+
 button {
-    padding: 10px 20px;
+    padding: 15px 30px;
     font-size: 16px;
-    margin: 10px;
-    background-color: #4CAF50;
     color: white;
+    background-color: #4CAF50;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -151,4 +196,84 @@ button:hover {
 button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
+}
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffeb3b;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(3) translate(calc(50px - 100%), calc(50px - 100%));
+    }
+}
+
+#santa {
+    position: absolute;
+    top: 10%;
+    right: -10%;
+    transform: translateY(0);
+    animation: moveSanta 10s ease-in-out infinite;
+}
+
+@keyframes moveSanta {
+    0% {
+        right: -10%;
+    }
+    50% {
+        right: 50%;
+    }
+    100% {
+        right: 110%;
+    }
+}
+
+.cloud {
+    position: absolute;
+    width: 1%;
+    animation-timing-function: linear;
+    z-index: -2;
+    top: 2%;
+}
+
+@keyframes moveCloud {
+    0% {
+        left: -20%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+#cloud-1 {
+    animation: moveCloud 15s infinite;
+    left: 0%;
+}
+
+#cloud-2 {
+    animation: moveCloud 20s infinite;
+    left: 5%;
+    padding-top: 10px;
+    width: 5%;
+}
+
+#cloud-3 {
+    animation: moveCloud 25s infinite;
+    left: 10%;
+}
+
+#cloud-4 {
+    animation: moveCloud 18s infinite;
+    left: 15%;
 }
