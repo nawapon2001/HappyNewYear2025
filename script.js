@@ -24,8 +24,8 @@ function createSnowflake() {
     snowflake.classList.add('snowflake');
     snowflake.textContent = '❄';
     snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // ความเร็วการตก
-    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // ขนาด
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
     document.body.appendChild(snowflake);
 
     setTimeout(() => {
