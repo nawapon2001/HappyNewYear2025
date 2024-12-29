@@ -9,45 +9,56 @@ body {
     color: #ffffff;
     text-align: center;
     overflow: hidden;
+    flex-direction: column;
 }
+
 h1 {
-    font-size: 3rem;
+    font-size: 5vw;
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
+
 #countdown {
-    font-size: 2.5rem;
+    font-size: 4vw;
     font-weight: bold;
     padding: 20px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
+
 footer {
     position: absolute;
     bottom: 10px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    text-align: center;
 }
+
 footer a {
     color: #ffeb3b;
     text-decoration: none;
 }
+
 footer a:hover {
     text-decoration: underline;
 }
+
 iframe {
     display: none;
 }
+
 .snowflake {
     position: fixed;
     top: -10px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: white;
     user-select: none;
     pointer-events: none;
     animation: fall linear infinite;
 }
+
 @keyframes fall {
     0% {
         transform: translateY(-10px) translateX(0);
@@ -56,5 +67,41 @@ iframe {
     100% {
         transform: translateY(100vh) translateX(calc(100vw - 50px));
         opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 7vw;
+    }
+
+    #countdown {
+        font-size: 5vw;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+
+    .snowflake {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 9vw;
+    }
+
+    #countdown {
+        font-size: 6vw;
+    }
+
+    footer {
+        font-size: 0.9rem;
+    }
+
+    .snowflake {
+        font-size: 0.8rem;
     }
 }
