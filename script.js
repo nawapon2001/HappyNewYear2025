@@ -30,9 +30,36 @@ function createSnowflake() {
 
     setTimeout(() => {
         snowflake.remove();
-    }, 5000); // ลบหลังจากหิมะตกลงพื้น
+    }, 5000);
 }
 
 setInterval(createSnowflake, 100);
 const interval = setInterval(updateCountdown, 1000);
 updateCountdown();
+
+const playButton = document.getElementById("playButton");
+        const changeSongButton = document.getElementById("changeSongButton");
+        const audio = document.getElementById("audio");
+
+        const songs = [
+            "music/newyear.mp3",
+            "music/newyear2.mp3", 
+            "music/newyear3.mp3",
+            "music/newyear4.mp3"
+        ];
+
+        let currentSongIndex = 0; 
+    
+        playButton.addEventListener("click", function() {
+            audio.play();
+            playButton.disabled = true; 
+        });
+
+    
+        changeSongButton.addEventListener("click", function() {
+            
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            audio.src = songs[currentSongIndex];
+            audio.play(); 
+            playButton.disabled = false; 
+        });

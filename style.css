@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Itim", serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,8 +11,14 @@ body {
     overflow: hidden;
     flex-direction: column;
 }
-
+.itim-regular {
+    font-family: "Itim", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 h1 {
+    font-family: "Itim", serif;
     font-size: 5vw;
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -104,4 +110,45 @@ iframe {
     .snowflake {
         font-size: 0.8rem;
     }
+}
+#playButton {
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+#playButton:hover {
+    background-color: #45a049;
+}
+
+/* สไตล์เมื่อกดปุ่ม */
+#playButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
