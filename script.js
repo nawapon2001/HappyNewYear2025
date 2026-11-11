@@ -1,5 +1,5 @@
 function updateCountdown() {
-    const newYear = new Date('January 1, 2025 00:00:00').getTime();
+    const newYear = new Date('January 1, 2027 00:00:00').getTime();
     const now = new Date().getTime();
     const timeRemaining = newYear - now;
 
@@ -12,7 +12,7 @@ function updateCountdown() {
         document.getElementById('countdown').innerText =
             `${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
     } else {
-        document.getElementById('countdown').innerText = '🎆 สวัสดีปีใหม่ 2025! 🎆';
+        document.getElementById('countdown').innerText = '🎆 สวัสดีปีใหม่ 2027! 🎆';
         playYouTubeAudio();
         clearInterval(interval);
     }
